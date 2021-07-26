@@ -42,6 +42,61 @@ static getAllUsers = async(req,res)=>{
 }
 
 
+static findOneUser = async(req,res)=>{
+    const user = await userInfo.findById(req.params.id);
+
+    if (!user) {
+        return res.status(404).json({
+            status:404,
+            message:"failed to get one users!"
+        })
+        
+    }
+
+    return res.status(200).json({
+        status:200,
+        message:"success!",
+        data:user
+    })
+}
+static DeleteUser = async(req,res)=>{
+    const user = await userInfo.findByIdAndDelete(req.params.id);
+
+    if (!user) {
+        return res.status(404).json({
+            status:404,
+            message:"failed to delete  user!"
+        })
+        
+    }
+
+    return res.status(200).json({
+        status:200,
+        message:"success!",
+        data:user
+    })
+}
+
+static UpdateUser = async(req,res)=>{  
+
+    const user = await userInfo.findByIdAndUpdate(req.params.id, req.body);
+
+    if (!user) {
+        return res.status(404).json({
+            status:404,
+            message:"failed to update  user!"
+        })
+        
+    }
+const update = await userInfo.findById(req.params.id);
+    return res.status(200).json({
+        status:200,
+        message:"woow!succesfully updated!",
+        data:update
+
+    })
+}
+
 }
 
 export default UserController;
