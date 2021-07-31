@@ -1,4 +1,4 @@
-import { data } from "browserslist";
+
 import userInfo from "../models/userModel";
 
 
@@ -7,7 +7,7 @@ class UserController{
 
 static signupUser = async(req,res)=>{
     const user = await userInfo.create(req.body);
-
+console.log(user);
     if (!user) {
         return res.status(400).json({
             status:400,
