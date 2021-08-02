@@ -19,8 +19,8 @@ password:{
     default:"1234567"
 },
 phone:{
-    type:String,
-    unique:true
+    type:String
+    
 },
 gender:{
     type:String,
