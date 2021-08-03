@@ -16,7 +16,7 @@ email:{
 },
 password:{
     type:String,
-    default:"1234567"
+    default:"12345@@@@"
 },
 phone:{
     type:String
