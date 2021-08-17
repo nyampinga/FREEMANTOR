@@ -6,6 +6,9 @@ class SessionController{
 //signup
 
 static sessionRequest = async(req,res)=>{
+
+    console.log(req.user);
+    req.body.user= req.user.id;
     const session = await sessionInfo.create(req.body);
 
     if (!session) {
