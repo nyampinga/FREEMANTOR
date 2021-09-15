@@ -119,6 +119,24 @@ static findOneUser = async(req,res)=>{
         data:user
     })
 }
+static findOneMentor = async(req,res)=>{
+    const user = await userInfo.findById(req.params.id,{role: "mentor"});
+
+    if (!user) {
+        return res.status(404).json({
+            status:404,
+            message:"failed to get one mentor!"
+        })
+        
+    }
+
+    return res.status(200).json({
+        status:200,
+        message:"success!",
+        data:user
+    })
+}
+
 static DeleteUser = async(req,res)=>{
     const user = await userInfo.findByIdAndDelete(req.params.id);
 
