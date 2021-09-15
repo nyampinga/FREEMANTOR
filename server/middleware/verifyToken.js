@@ -14,6 +14,7 @@ if (!token) {
 }
 try {
     const user =TokenAuth.getDataFromToken(token);
+    console.log(req.user);
     req.user = user;
     return next();
 } catch (err) {
