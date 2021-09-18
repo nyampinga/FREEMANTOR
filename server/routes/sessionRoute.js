@@ -7,7 +7,7 @@ import verifyToken from "../middleware/verifyToken";
 
 const sessionRouter = express.Router();
 sessionRouter.post("/request",verifyToken,verifyAccess("user"),SessionController.sessionRequest);
-sessionRouter.get("/all",verifyToken,verifyAccess("user"),SessionController.getAllSession);
+sessionRouter.get("/:id/all",verifyToken,verifyAccess("user"),SessionController.getAllSession);
 sessionRouter.get("/:id", SessionController.findOneSession);
 sessionRouter.delete("/:id",SessionController.DeleteSession);
 sessionRouter.patch("/:id/approve",verifyToken,verifyAccess("mentor"),SessionController.acceptOneSession);
