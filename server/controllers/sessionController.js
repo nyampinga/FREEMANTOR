@@ -28,7 +28,7 @@ static sessionRequest = async(req,res)=>{
 
 static getAllSession = async(req,res)=>{
     ///console.log(req.user);
-    const sessions = await sessionInfo.find({User:req.user.id});
+    const sessions = await sessionInfo.find({user:req.user.id});
 
     if (!sessions) {
         return res.status(404).json({
